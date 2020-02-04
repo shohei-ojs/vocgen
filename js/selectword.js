@@ -1,4 +1,13 @@
-console.log("loaded selectword!")
-document.addEventListener("selectionchange", () => {
-    console.log(document.getSelection());
-});
+console.log("loaded selectword.js")
+
+var sendMess = function(event){
+    const str = window.getSelection().toString();
+    window.postMessage({keyword: str}, "*");
+};
+
+// はん
+document.addEventListener(
+    "selectionchange",
+    sendMess
+);
+
