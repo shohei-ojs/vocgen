@@ -3,16 +3,25 @@
     "name": "vocgen",
     "version": "1.0.0",
     "description": "This extension make a vocabulary book from web pages.",
+    "permissions": [
+        "tabs"
+    ],
     "browser_action": {
         "default_title": "vocgen",
         "defautl_icon": "images/icon.png",
         "default_popup": "html/popup.html"
     },
-    "web_accessible_resources": ["js/selectword.js"],
+    "web_accessible_resources": [
+        "js/selectword.js"
+    ],
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
-            "js": ["js/writer.js"]
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/writer.js"
+            ]
         }
     ]
 }

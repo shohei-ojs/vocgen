@@ -1,0 +1,12 @@
+<script>
+    console.log("loaded popup.js")
+    chrome.extension.onConnect.addListener(function (port) {
+        console.log(port.name);
+        port.onMessage.addListener(function (word) {
+            var destination = chrome.extension.getURL("html/popup.html")
+            var div = document.createElement('div');
+            div.textContent = word
+            destination.element.appendChild(div);
+        })
+    })
+</script>

@@ -1,17 +1,15 @@
-//start connection in content script
-// let contentPort = chrome.runtime.connect({
-//   name: "background-content"
-// });
-
-//Append your pageScript.js to "real" webpage. So will it can full access to webpate.
+//Append selectword.js to "real" webpage. So will it can full access to webpage.
 var s = document.createElement("script");
 s.src = chrome.extension.getURL("js/selectword.js");
 (document.head || document.documentElement).appendChild(s);
 s.parentNode.removeChild(s);
-console.log("writer js loaded")
+
+console.log(chrome.tabs)
 
 var selectWord = function(event) {
   if (event.data.keyword) {
+    console.log(chrome.tabs)
+    port.postMessage({keyword: event.data.keyword});
     console.log(event.data.keyword)
   }
   // const word = window.getSelection().string()
