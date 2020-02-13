@@ -5,9 +5,7 @@ var sendMess = function(event){
     window.postMessage({keyword: str}, "*");
 };
 
-// はん
 document.addEventListener(
     "selectionchange",
     sendMess
 );
-

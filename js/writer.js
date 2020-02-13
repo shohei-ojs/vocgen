@@ -4,11 +4,10 @@ s.src = chrome.extension.getURL("js/selectword.js");
 (document.head || document.documentElement).appendChild(s);
 s.parentNode.removeChild(s);
 
-console.log(chrome.tabs)
 
 var selectWord = function(event) {
   if (event.data.keyword) {
-    console.log(chrome.tabs)
+    var port = chrome.runtime.connect({name: "ABCD"})
     port.postMessage({keyword: event.data.keyword});
     console.log(event.data.keyword)
   }
@@ -27,3 +26,11 @@ window.addEventListener(
 var writeWordToHTML = function(word) {
 
 }
+
+
+var createDialog = function() {
+  console.log("helloWorld")
+  document.getElementsByTagName("html").innerHTML = '<div style="border:3px solid rosybrown; text-align:right; width:300px; height:600px; z-index: 100000;">右寄せ</div>'
+  console.log(document.getElementsByTagName("html").innerHTML)
+}
+
